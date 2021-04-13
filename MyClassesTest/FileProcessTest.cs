@@ -98,7 +98,8 @@ namespace MyClassesTest
             TestContext.WriteLine($"Testing File :{ _GoodFileName}");
             fromCall = fp.FileExists(_GoodFileName);
 
-            Assert.IsFalse(fromCall, "File '{0}' Does Not Exist.",_GoodFileName);
+            Assert.IsTrue(fromCall, "File '{0}' Does Not Exist.", _GoodFileName);
+            //Assert.IsFalse(fromCall, "File '{0}' Does Not Exist.",_GoodFileName);
         }
 
         [TestMethod]

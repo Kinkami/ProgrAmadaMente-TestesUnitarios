@@ -18,7 +18,7 @@ namespace MyClassesTest
             string str = "Fer";
             string str2 = "Fernando";
 
-            StringAssert.Contains(str, str2);
+            StringAssert.Contains(str2, str);
         }
 
         [TestMethod]
@@ -28,7 +28,7 @@ namespace MyClassesTest
             string str = "Fer";
             string str2 = "Fernando";
 
-            StringAssert.StartsWith(str, str2);
+            StringAssert.StartsWith(str2, str);
         }
 
         [TestMethod]
