@@ -62,34 +62,7 @@ namespace MyClassesTest
 
         #endregion
 
-        #region Instance of type
-
-        [TestMethod]
-        [Owner("Fernando Henrique Leme")]
-        public void InstanceOfTypeTest()
-        {
-            PersonManager personManager = new PersonManager();
-            Person person;
-
-            person = personManager.CreatePerson("Fernando", "Leme", true);
-
-            Assert.IsInstanceOfType(person, typeof(Supervisor));
-        }
-
-        [TestMethod]
-        [Owner("Fernando Henrique Leme")]
-        public void IsnullTest()
-        {
-            PersonManager personManager = new PersonManager();
-            Person person;
-
-            person = personManager.CreatePerson("", "Leme", true);
-
-            Assert.IsNull(person);
-        }
-
-
-        #endregion
+   
 
     }
 }

@@ -149,5 +149,38 @@ namespace MyClassesTest
             Assert.Fail("Fail expected");
 
         }
+
+
+        [TestMethod]
+        [Owner("Fernando Henrique Leme")]
+        [DataSource("System.Data.SqlClient",
+            @"Data Source=DESKTOP-I7E4GUE;Initial Catalog=TestesUnitários;Integrated Security=True",
+            "FileProcessTest", DataAccessMethod.Sequential)]
+        public void FileNameDoesExistsTestFromDB()
+        {
+            FileProcess fp = new FileProcess();
+            string fileName;
+            bool expectedValue, causesException, fromCall;
+
+            fileName = TestContext.DataRow["FileName"].ToString();
+            expectedValue = Convert.ToBoolean(TestContext.DataRow["ExpectedValue"]);
+            causesException = Convert.ToBoolean(TestContext.DataRow["CausesException"]);
+
+            try
+            {
+                fromCall = fp.FileExists(fileName);
+                Assert.AreEqual(expectedValue, fromCall,
+                    $"File: {fileName} has failed. METHOD: FileNameDoesExistsTestFromDB");
+            }
+            catch (ArgumentException)
+            {
+
+                Assert.IsTrue(causesException);
+            }  
+
+        }
+
+
+
     }
 }
